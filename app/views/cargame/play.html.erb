@@ -1,0 +1,31 @@
+<%= @createdcar.createdcar %>
+
+<!-- <%
+  pb = ""
+  if @createdcar.speed > 0
+  pb = "disabled"
+  end
+%> -->
+<form action = "accelerate" method "get">
+  <button type="submit" <%= pb2 %>>Go Faster</button>
+</form>
+<form action = "brake" method "get">
+  <button type="submit" >Go Slower</button>
+</form>
+<form action = "lights" method "get">
+  <button type="submit" >Toggle Lights</button>
+</form>
+<form action = "ebrake" method "get">
+  <input type="radio" id = "on" name = "ebrake" <%= pb %>>Apply Emergency Brake</input>
+  <input type="radio" id = "off" name = "ebrake" >Release Emergency Brake</input>
+</form>
+
+
+<!-- <label class='checkbox-inline'>
+  <%= radio_button_tag :option, :user, true %>
+  ebrake on
+</label>
+<label class='checkbox-inline'>
+  <%= radio_button_tag :option, :user, false %>
+  ebrake off
+</label> -->
