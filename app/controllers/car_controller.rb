@@ -28,8 +28,8 @@ class CarController < ApplicationController
     elsif @lights == "on"
       @lights = "off"
     end
-  # def speed
-  #   @speed
-  # end
+  end
+  def speed
+    @speed
   end
 end

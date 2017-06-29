@@ -1,13 +1,13 @@
-<%= @createdcar.createdcar %>
+<h3 id= "speed"><%= @createdcar.speed %></h3>
 
-<!-- <%
+<!--
   pb = ""
   if @createdcar.speed > 0
   pb = "disabled"
   end
-%> -->
+ -->
 <form action = "accelerate" method "get">
-  <button type="submit" <%= pb2 %>>Go Faster</button>
+  <button type="submit" id="go" >Go Faster</button>
 </form>
 <form action = "brake" method "get">
   <button type="submit" >Go Slower</button>
@@ -16,16 +16,30 @@
   <button type="submit" >Toggle Lights</button>
 </form>
 <form action = "ebrake" method "get">
-  <input type="radio" id = "on" name = "ebrake" <%= pb %>>Apply Emergency Brake</input>
-  <input type="radio" id = "off" name = "ebrake" >Release Emergency Brake</input>
+
+<input type="radio" id = "on" name = "ebrake"  >Apply Emergency Brake</input>
+
+<input type="radio" id = "off" name = "ebrake" >Release Emergency Brake</input>
 </form>
 
+<script language="javascript" type="text/javascript">
+  var speed = document.getElementById("speed")
+  // document.getElementById("on").checked = false
+  function ebrake(){
+    if (parseInt(speed.innerHTML) > 0){
+      document.getElementById("on").disabled = true;
+    }
+  }
+  function go(){
+    if (document.getElementById("on").checked) {
+      document.getElementById("go").disabled = true;
+    }
+      else if (document.getElementById("off").checked === true){
 
-<!-- <label class='checkbox-inline'>
-  <%= radio_button_tag :option, :user, true %>
-  ebrake on
-</label>
-<label class='checkbox-inline'>
-  <%= radio_button_tag :option, :user, false %>
-  ebrake off
-</label> -->
+      document.getElementById("go").disabled = false;
+    }
+
+  }
+  ebrake()
+  go()
+</script>
